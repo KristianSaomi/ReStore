@@ -1,17 +1,18 @@
 import { useEffect, useState } from "react";
-import { Product } from "./products";
+import { Product } from "../models/products";
+import Catalog from "../../features/catalog/Catalog";
 
 function App() {
-  const [product, setProduct] = useState<Product[]>([]);
+  const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
     fetch("http://localhost:5000/api/Products")
       .then((response) => response.json())
-      .then((data) => setProduct(data));
+      .then((data) => setProducts(data));
   }, []);
 
   function addProduct() {
-    setProduct((prevState) => [
+    setProducts((prevState) => [
       ...prevState,
       {
         id: prevState.length + 101,
@@ -28,16 +29,7 @@ function App() {
     <>
       <div>
         <h1>Re-Store</h1>
-        {product.map((product) => (
-          <ul key={product.id}>
-            <li>name: {product.name}</li>
-            <li>price: {product.price}</li>
-            <li>image: {product.pictureUrl}</li>
-          </ul>
-        ))}
-        <button id="addingProduct" onClick={addProduct}>
-          Add product
-        </button>
+        <Catalog products={products} addProduct={addProduct} />
       </div>
     </>
   );
