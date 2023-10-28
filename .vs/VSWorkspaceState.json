@@ -3,7 +3,8 @@
     "",
     "\\ReStore",
     "\\ReStore\\API",
-    "\\ReStore\\API\\Entities"
+    "\\ReStore\\API\\Data",
+    "\\ReStore\\API\\Data\\Migrations"
   ],
   "SelectedNode": "\\ReStore\\API\\Program.cs",
   "PreviewInSolutionExplorer": false
