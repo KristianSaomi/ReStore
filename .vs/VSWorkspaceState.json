@@ -2,7 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\ReStore",
-    "\\ReStore\\API"
+    "\\ReStore\\API",
+    "\\ReStore\\API\\Data",
+    "\\ReStore\\API\\Data\\Migrations"
   ],
+  "SelectedNode": "\\ReStore\\API\\Data\\DbInitializer.cs",
   "PreviewInSolutionExplorer": false
 }
