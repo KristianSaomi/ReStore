@@ -3,9 +3,8 @@
     "",
     "\\ReStore",
     "\\ReStore\\API",
-    "\\ReStore\\API\\Data",
-    "\\ReStore\\API\\Data\\Migrations"
+    "\\ReStore\\API\\Entities"
   ],
-  "SelectedNode": "\\ReStore\\API\\Data\\DbInitializer.cs",
+  "SelectedNode": "\\ReStore\\API\\Program.cs",
   "PreviewInSolutionExplorer": false
 }
