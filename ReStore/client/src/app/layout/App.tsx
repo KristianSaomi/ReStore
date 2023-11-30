@@ -5,7 +5,7 @@ import {
   ThemeProvider,
   createTheme,
 } from "@mui/material";
-import Header from "./Header";
+import Header from "./Header/Header";
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
 
