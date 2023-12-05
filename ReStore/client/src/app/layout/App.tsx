@@ -1,11 +1,11 @@
-import Catalog from "../../features/catalog/Catalog";
+import Catalog from "../../features/catalog/catalog";
 import {
   Container,
   CssBaseline,
   ThemeProvider,
   createTheme,
 } from "@mui/material";
-import Header from "./Header/Header";
+import Header from "./Header/header";
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
 

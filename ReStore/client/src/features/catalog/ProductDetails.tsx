@@ -12,36 +12,52 @@ import {
   TableRow,
   Typography,
 } from "@mui/material";
+import agent from "../../app/api/agent";
 
 export default function ProductDetails() {
   const { id } = useParams<{ id: string }>();
-  const [product, setProducts] = useState<Product | null>(null);
+  const [product, setProducts] = useState<Product>();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:5000/api/Products/${id}`)
-      .then((response) => setProducts(response.data))
-      .catch((error) => console.log(error))
-      .finally(() => setLoading(false));
+    //Normal axios response
+    // axios
+    //   .get(`http://localhost:5000/api/Products/${id}`)
+    //   .then((response) => setProducts(response.data))
+    //   .catch((error) => console.log(error))
+    //   .finally(() => setLoading(false));
+    id &&
+      agent.Catalog.details(parseInt(id))
+        .then((response) => {
+          if (response.status != 200) {
+            () => console.log(response.status, "something went wrong");
+          }
+          setProducts(response);
+        })
+        .catch((error) => console.log(error))
+        .finally(() => setLoading(false));
   }, [id]);
+
+  if (loading) {
+    <h1>Laddar</h1>;
+  }
 
   return (
     <>
-      {product != null && !loading ? (
+      {product && !loading ? (
         <Grid container spacing={6}>
           <Grid item xs={6}>
             <img
-              src={product.pictureUrl}
-              alt={product.name}
+              src={product?.pictureUrl}
+              alt={product?.name}
               style={{ width: "100%" }}
             ></img>
           </Grid>
           <Grid item xs={6}>
-            <Typography variant="h3">{product.name}</Typography>
+            <Typography variant="h3">{product?.name}</Typography>
             <Divider sx={{ mb: 2 }} />
             <Typography variant="h4" color="secondary">
-              ${(product?.price / 100).toFixed(2)}
+              ${(product.price / 100).toFixed(2)}
             </Typography>
             <TableContainer>
               <Table>
@@ -72,7 +88,7 @@ export default function ProductDetails() {
           </Grid>
         </Grid>
       ) : (
-        <Typography variant="h1">Cant find this product</Typography>
+        <h2>lol</h2>
       )}
     </>
   );
