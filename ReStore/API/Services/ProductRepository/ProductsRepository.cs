@@ -28,7 +28,6 @@ public class ProductsRepository : IProductsRepository
     {
         var product = await _context.Products.SingleOrDefaultAsync(x => x.Id == id);
 
-        if (product.Id != id) _logger.LogError("Cant find any product with id; ", $"{id}");
         return product;
     }
 }

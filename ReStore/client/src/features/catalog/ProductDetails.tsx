@@ -13,6 +13,7 @@ import {
   Typography,
 } from "@mui/material";
 import agent from "../../app/api/agent";
+import NotFound from "../errors/NotFound";
 
 export default function ProductDetails() {
   const { id } = useParams<{ id: string }>();
@@ -88,7 +89,7 @@ export default function ProductDetails() {
           </Grid>
         </Grid>
       ) : (
-        <h2>lol</h2>
+        <NotFound />
       )}
     </>
   );
