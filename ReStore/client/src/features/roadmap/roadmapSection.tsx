@@ -2,9 +2,10 @@
 import { useEffect, useRef, useState } from "react";
 import { IRoadmap } from "./interface/IRoadmap";
 import RoadmapCard from "./styling/roadmapCard";
+import "./styling/roadmap.css";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import agent from "../../app/api/agent";
-import isEmpty from "lodash";
+import isEmpty, { result } from "lodash";
 
 // Define the RoadmapSection component
 const RoadmapSection = () => {
@@ -22,7 +23,7 @@ const RoadmapSection = () => {
 
   // Fetch data on component mount
   useEffect(() => {
-    agent.Catalog.agent()
+    agent.Catalog.item()
       .then((response) => {
         const newDataByStatus: Record<string, IRoadmap[]> = {};
         uniqueStatuses.forEach((status) => {
@@ -86,7 +87,6 @@ const RoadmapSection = () => {
           ...dataByStatus,
           [sourceStatus]: reorderedStores,
         });
-        console.log(reorderedStores);
       } else {
         // If dragging between different droppable containers
         const sourceStores = [...dataByStatus[sourceStatus]];
@@ -100,7 +100,6 @@ const RoadmapSection = () => {
           [sourceStatus]: sourceStores,
           [destinationStatus]: destinationStores,
         });
-        handleSet(destinationStores);
       }
       //Get
       const { clientHeight, clientWidth } = draggedDOM;
@@ -124,12 +123,6 @@ const RoadmapSection = () => {
       });
     }
   };
-
-  //Set
-  const handleSet = (destinationStores: any) => {
-    console.log(destinationStores);
-  };
-
   const getDraggedDom = (draggableId: any) => {
     const domQuery = `[${queryAttr}='${draggableId}']`;
     const draggedDOM = document.querySelector(domQuery);

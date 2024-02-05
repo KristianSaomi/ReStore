@@ -1,6 +1,6 @@
 import { AppBar, Box, Switch, Toolbar, Typography } from "@mui/material";
 import { NavLink } from "react-router-dom";
-import RightHeaderLinks from "./RightHeaderLinks";
+import RightHeaderLinks from "./rightHeaderLinks";
 import MidleHeaderLinks from "./MidleHeaderLinks";
 interface Props {
   darkMode: boolean;
