@@ -2,6 +2,7 @@ using API.Data;
 using API.Mapping;
 using API.Middleware;
 using API.Services.IProductRepository;
+using API.Services.ItemRepository;
 using Microsoft.EntityFrameworkCore;
 
 namespace API;
@@ -27,6 +28,7 @@ public class Program
 
         //Repository
         builder.Services.AddScoped<IProductsRepository, ProductsRepository>();
+        builder.Services.AddScoped<IItemRepository, ItemRepository>();
 
         //DbContext
         builder.Services.AddDbContext<StoreContext>(opt =>

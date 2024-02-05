@@ -1,19 +1,17 @@
-﻿using API.Controllers.ErrorController;
-using API.Data;
-using API.DTO.Products;
+﻿using API.DTO.Products;
 using API.Entities;
 using API.Services.IProductRepository;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 
-namespace API.Controllers;
+namespace API.Controllers.V1.ProductsController;
 
 public class ProductsController : BaseApiController
 {
     private readonly IMapper _mapper;
     private readonly IProductsRepository _productRepository;
 
-    public ProductsController(StoreContext context, IProductsRepository productRepository, IMapper mapper)
+    public ProductsController(IProductsRepository productRepository, IMapper mapper)
     {
         _productRepository = productRepository;
         _mapper = mapper;
@@ -42,6 +40,7 @@ public class ProductsController : BaseApiController
     public async Task<ActionResult<Product>> GetProduct(int id)
     {
         var product = await _productRepository.GetProductById(id);
+        if (product == null) return NotFound();
         var response = _mapper.Map<ProductsDto>(product);
         return Ok(response);
     }
