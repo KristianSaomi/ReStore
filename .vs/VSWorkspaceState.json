@@ -4,9 +4,14 @@
     "\\ReStore",
     "\\ReStore\\API",
     "\\ReStore\\API\\Controllers",
+    "\\ReStore\\API\\Controllers\\V1",
+    "\\ReStore\\API\\Controllers\\V1\\Base",
     "\\ReStore\\API\\Data",
-    "\\ReStore\\API\\Data\\Migrations"
+    "\\ReStore\\API\\Data\\Migrations",
+    "\\ReStore\\API\\Mapping",
+    "\\ReStore\\API\\Services",
+    "\\ReStore\\API\\Services\\ProductRepository"
   ],
-  "SelectedNode": "\\ReStore\\API\\Controllers\\ProductsController.cs",
+  "SelectedNode": "\\ReStore\\API\\Program.cs",
   "PreviewInSolutionExplorer": false
 }

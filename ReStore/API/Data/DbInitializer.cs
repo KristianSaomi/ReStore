@@ -1,4 +1,6 @@
 ﻿using API.Entities;
+using API.Entities.Enum;
+using API.Item.Enum;
 
 namespace API.Data
 {
@@ -207,15 +209,42 @@ namespace API.Data
                     QuantityInStock = 100
                 }
             };
-
             context.Products.AddRange(products);
+            context.SaveChanges();
 
             //foreach (var product in products)
             //{
             //    context.Products.Add(product);
 
             //}
+        }
+        public static void itemInitlize(StoreContext context)
+        {
+            if (context.Items.Any()) return;
+
+            var itemz = new List<ItemObject>
+            {
+                new ItemObject
+                {
+                    Id = 1,
+                    Text = "Test",
+                    Desc = "Test",
+                    Tag = Tag.Feature,
+                    Status = Status.Planerat
+                },
+                new ItemObject
+                {
+                    Id = 2,
+                    Text = "Test",
+                    Desc = "Test",
+                    Tag = Tag.Feature,
+                    Status = Status.Lanserat
+                }
+            };
+
+            context.Items.AddRange(itemz);
             context.SaveChanges();
         }
     }
+
 }
