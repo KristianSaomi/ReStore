@@ -4,10 +4,13 @@ import { router } from "../router/Routes";
 
 axios.defaults.baseURL = 'http://localhost:5000/api/'
 
+const sleep = () => new Promise(resolve => setTimeout(resolve, 500));
+
 const responseBody = (response: AxiosResponse) => response.data;
 
 axios.interceptors.response.use(
-    (response) => {
+    async (response) => {
+      await sleep();
       return response;
     },
     (error: AxiosError) => {

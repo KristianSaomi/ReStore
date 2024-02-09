@@ -6,6 +6,7 @@ import "./styling/roadmap.css";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import agent from "../../app/api/agent";
 import isEmpty, { result } from "lodash";
+import LoadingComponent from "../../app/layout/LoadingComponent";
 
 // Define the RoadmapSection component
 const RoadmapSection = () => {
@@ -36,6 +37,11 @@ const RoadmapSection = () => {
       .catch((error) => console.log(error))
       .finally(() => setLoading(false));
   }, []);
+
+  //If Loading
+  if (loading) {
+    return <LoadingComponent message="Loading Roadmap" />;
+  }
 
   //Styles applied here
   const grid = 4;

@@ -4,14 +4,14 @@
     "\\ReStore",
     "\\ReStore\\API",
     "\\ReStore\\API\\Controllers",
+    "\\ReStore\\API\\Controllers\\ErrorController",
     "\\ReStore\\API\\Controllers\\V1",
-    "\\ReStore\\API\\Controllers\\V1\\Base",
-    "\\ReStore\\API\\Data",
-    "\\ReStore\\API\\Data\\Migrations",
-    "\\ReStore\\API\\Mapping",
-    "\\ReStore\\API\\Services",
-    "\\ReStore\\API\\Services\\ProductRepository"
+    "\\ReStore\\API\\Controllers\\V1\\ItemController",
+    "\\ReStore\\API\\Controllers\\V1\\ProductsController",
+    "\\ReStore\\API\\DTO",
+    "\\ReStore\\API\\DTO\\Item",
+    "\\ReStore\\API\\Middleware"
   ],
-  "SelectedNode": "\\ReStore\\API\\Program.cs",
+  "SelectedNode": "\\ReStore\\API\\Services\\ProductRepository\\ProductsRepository.cs",
   "PreviewInSolutionExplorer": false
 }

@@ -14,6 +14,7 @@ import {
 } from "@mui/material";
 import agent from "../../app/api/agent";
 import NotFound from "../errors/NotFound";
+import LoadingComponent from "../../app/layout/LoadingComponent";
 
 export default function ProductDetails() {
   const { id } = useParams<{ id: string }>();
@@ -40,7 +41,7 @@ export default function ProductDetails() {
   }, [id]);
 
   if (loading) {
-    <h1>Laddar</h1>;
+    return <LoadingComponent message={`Loading product id: ${id}`} />;
   }
 
   return (
