@@ -1,17 +1,20 @@
 // Import necessary dependencies
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { IRoadmap } from "./interface/IRoadmap";
 import RoadmapCard from "./styling/roadmapCard";
 import "./styling/roadmap.css";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import agent from "../../app/api/agent";
-import isEmpty, { result } from "lodash";
+import isEmpty from "lodash";
 import LoadingComponent from "../../app/layout/LoadingComponent";
 
 // Define the RoadmapSection component
 const RoadmapSection = () => {
   // Define the unique statuses
-  const uniqueStatuses = ["Planerat", "Pågående", "Testar", "Lanserat"];
+  const uniqueStatuses = useMemo(
+    () => ["Planerat", "Pågående", "Testar", "Lanserat"],
+    []
+  );
   const queryAttr = "data-rbd-drag-handle-draggable-id";
 
   // State to store data by status
@@ -36,7 +39,7 @@ const RoadmapSection = () => {
       })
       .catch((error) => console.log(error))
       .finally(() => setLoading(false));
-  }, []);
+  }, [uniqueStatuses]);
 
   //If Loading
   if (loading) {

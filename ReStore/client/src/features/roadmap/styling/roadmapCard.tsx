@@ -10,7 +10,7 @@ export default function RoadmapCard({ data }: SectionProps) {
 
   const minDescription = 82;
 
-  var tagColor =
+  const tagColor =
     data.tag == "BuggFix"
       ? "#FFE8E8"
       : data.tag == "Objective"

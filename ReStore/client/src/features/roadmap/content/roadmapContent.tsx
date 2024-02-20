@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import { IRoadmap } from "../interface/IRoadmap";
-import RoadmapSection from "../roadmapSection";
 
 export const RoadmapContent = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [hasError, setHasError] = useState<boolean>(false);
-  const [state, setState] = useState<IRoadmap[]>([
+  const [, setState] = useState<IRoadmap[]>([
     { id: 0, text: "", desc: "", status: "Planerat", sortOrder: 0, tag: "" },
   ]);
 
