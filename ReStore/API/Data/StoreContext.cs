@@ -1,4 +1,5 @@
 ﻿using API.Entities;
+using API.Entities.Basket;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Data
@@ -16,5 +17,6 @@ namespace API.Data
         //Represent a table in the database
         public DbSet<Product> Products { get; set; }
         public DbSet<ItemObject> Items { get; set; }
+        public DbSet<Basket> Baskets { get; set; }
     }
 }

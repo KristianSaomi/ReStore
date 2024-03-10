@@ -5,10 +5,12 @@
     "\\ReStore\\API",
     "\\ReStore\\API\\Controllers",
     "\\ReStore\\API\\Controllers\\V1",
-    "\\ReStore\\API\\Controllers\\V1\\ProductsController",
-    "\\ReStore\\API\\Middleware",
+    "\\ReStore\\API\\Controllers\\V1\\BasketController",
+    "\\ReStore\\API\\Controllers\\V1\\ItemController",
+    "\\ReStore\\API\\Migrations",
     "\\ReStore\\API\\Services",
-    "\\ReStore\\API\\Services\\ProductRepository"
+    "\\ReStore\\API\\Services\\ItemRepository"
   ],
+  "SelectedNode": "\\ReStore\\API\\Controllers\\V1\\BasketController\\BasketController.cs",
   "PreviewInSolutionExplorer": false
 }
