@@ -8,6 +8,7 @@ import ContactPage from "../../features/catalog/contactPage";
 import NotFound from "../../features/errors/NotFound";
 import RoadmapSection from "../../features/roadmap/roadmapSection";
 import ServerError from "../../features/errors/ServerError";
+import BasketPage from "../../features/basket/BasketPage";
 
 export const router = createBrowserRouter([
   {
@@ -22,6 +23,7 @@ export const router = createBrowserRouter([
       { path: "/roadmap", element: <RoadmapSection /> },
       { path: "/server-error", element: <ServerError /> },
       { path: "/not-found", element: <NotFound /> },
+      { path: "/basket", element: <BasketPage /> },
       { path: "/*", element: <Navigate replace to="/not-found" /> },
     ],
   },

@@ -1,6 +1,6 @@
 import { ShoppingCart } from "@mui/icons-material";
 import { Badge, IconButton, List, ListItem } from "@mui/material";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const navStyles = {
   color: "inherit",
@@ -23,7 +23,14 @@ const rightLinks = [
 export default function RightHeaderLinks() {
   return (
     <>
-      <IconButton size="large" edge="start" color="inherit" sx={{ mr: 2 }}>
+      <IconButton
+        component={Link}
+        to="/basket"
+        size="large"
+        edge="start"
+        color="inherit"
+        sx={{ mr: 2 }}
+      >
         <ShoppingCart />
         <Badge badgeContent="4" color="secondary" />
       </IconButton>
