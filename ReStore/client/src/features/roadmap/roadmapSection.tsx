@@ -113,7 +113,7 @@ const RoadmapSection = () => {
       //Get
       const { clientHeight, clientWidth } = draggedDOM;
       const sourceIndex = results.source.index;
-      var clientY =
+      let clientY =
         parseFloat(window.getComputedStyle(draggedDOM.parentNode).paddingTop) +
         [...draggedDOM.parentNode.children]
           .slice(0, sourceIndex)
