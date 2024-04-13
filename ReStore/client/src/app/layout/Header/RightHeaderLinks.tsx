@@ -1,6 +1,7 @@
 import { ShoppingCart } from "@mui/icons-material";
 import { Badge, IconButton, List, ListItem } from "@mui/material";
 import { Link, NavLink } from "react-router-dom";
+import { useStoreContext } from "../../Context/useStoreContext";
 
 const navStyles = {
   color: "inherit",
@@ -21,6 +22,8 @@ const rightLinks = [
 ];
 
 export default function RightHeaderLinks() {
+  const { basket } = useStoreContext();
+  const itemCount = basket?.items.reduce((sum, item) => sum + item.quantity, 0);
   return (
     <>
       <IconButton
@@ -32,7 +35,7 @@ export default function RightHeaderLinks() {
         sx={{ mr: 2 }}
       >
         <ShoppingCart />
-        <Badge badgeContent="4" color="secondary" />
+        <Badge badgeContent={itemCount} color="secondary" />
       </IconButton>
       <List sx={{ display: "flex" }}>
         {rightLinks.map(({ title, path }) => (

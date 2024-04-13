@@ -9,12 +9,12 @@ import "@fontsource/roboto/700.css";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./app/router/Routes.tsx";
 import { StoreProvider } from "./app/Context/StoreContext.tsx";
-import React from "react";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>
-    <StoreProvider>
-      <RouterProvider router={router} />
-    </StoreProvider>
-  </React.StrictMode>
+  //using StrictMode makes the roadmap dependencies not work
+  // <React.StrictMode>
+  <StoreProvider>
+    <RouterProvider router={router} />
+  </StoreProvider>
+  // </React.StrictMode>
 );
